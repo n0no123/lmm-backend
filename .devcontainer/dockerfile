@@ -1,0 +1,17 @@
+FROM alpine:latest
+
+RUN apk update && apk add --no-cache curl elixir fish git starship
+
+RUN curl -sS https://starship.rs/install.sh | sh -s -- --yes
+
+RUN adduser -D bdoliveira -s fish
+
+USER bdoliveira
+
+WORKDIR /home/bdoliveira
+
+RUN yes Y | mix archive.install hex phx_new
+
+RUN mkdir -p .config/fish/
+
+RUN echo "starship init fish | source" >> .config/fish/config.fish

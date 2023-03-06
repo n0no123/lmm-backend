@@ -1,0 +1,22 @@
+{
+    "name": "Alpine",
+    "build": {
+        "dockerfile": "dockerfile",
+        "context": ".."
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "GitHub.vscode-pull-request-github",
+                "Gruntfuggly.todo-tree",
+                "JakeBecker.elixir-ls",
+                "ms-vsliveshare.vsliveshare",
+                "streetsidesoftware.code-spell-checker",
+                "streetsidesoftware.code-spell-checker-french"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "fish"
+            }
+        }
+    }
+}
