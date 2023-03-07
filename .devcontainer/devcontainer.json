@@ -1,5 +1,5 @@
 {
-    "name": "Alpine",
+    "name": "Alpine: Elixir",
     "build": {
         "dockerfile": "dockerfile",
         "context": ".."
@@ -15,6 +15,7 @@
                 "streetsidesoftware.code-spell-checker-french"
             ],
             "settings": {
+                "editor.fontFamily": "'Fira Code'",
                 "terminal.integrated.defaultProfile.linux": "fish"
             }
         }
