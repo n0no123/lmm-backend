@@ -1,9 +1,13 @@
 {
     "name": "Debian: Elixir",
-    "build": {
-        "dockerfile": "dockerfile",
-        "context": ".."
-    },
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "elixir",
+    "workspaceFolder": "/workspace",
+    "forwardPorts": [
+        4000,
+        4001,
+        5432
+    ],
     "customizations": {
         "vscode": {
             "extensions": [
