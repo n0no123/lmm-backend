@@ -7,9 +7,7 @@ defmodule LMMWeb.WordController do
   action_fallback(LMMWeb.FallbackController)
 
   def index(conn, _params) do
-    word = :httpc.request(:get, {'https://trouve-mot.fr/api/size/5', []}, [], [])
-    res = List.first(Jason.decode!(elem(elem(word, 1), 2)))
-    name = Map.get(res, "name")
+    name = File.read!("daily.txt")
     json(conn, %{name: name})
   end
 

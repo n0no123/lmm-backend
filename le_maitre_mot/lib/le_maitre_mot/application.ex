@@ -15,9 +15,10 @@ defmodule LMM.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: LMM.PubSub},
       # Start the Endpoint (http/https)
-      LMMWeb.Endpoint
+      LMMWeb.Endpoint,
       # Start a worker by calling: LMM.Worker.start_link(arg)
       # {LMM.Worker, arg}
+      LMM.Periodically
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
