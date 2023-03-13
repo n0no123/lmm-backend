@@ -4,11 +4,13 @@ defmodule LMMWeb.WordController do
   alias LMM.Wordle
   alias LMM.Wordle.Word
 
-  action_fallback LMMWeb.FallbackController
+  action_fallback(LMMWeb.FallbackController)
 
   def index(conn, _params) do
-    words = Wordle.list_words()
-    render(conn, :index, words: words)
+    word = :httpc.request(:get, {'https://trouve-mot.fr/api/size/5', []}, [], [])
+    res = List.first(Jason.decode!(elem(elem(word, 1), 2)))
+    name = Map.get(res, "name")
+    json(conn, %{name: name})
   end
 
   def create(conn, %{"word" => word_params}) do
